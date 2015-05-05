@@ -19,4 +19,14 @@ end
 desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
+  
+end
+desc "start console"
+task :console do
+  require 'irb'
+  require 'irb/completion'
+  require ::File.expand_path('../config/environment',  __FILE__)
+ 
+  ARGV.clear
+  IRB.start
 end
